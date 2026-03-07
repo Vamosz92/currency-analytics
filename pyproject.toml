@@ -1,0 +1,20 @@
+[project]
+name = "app"
+version = "0.1.0"
+description = "Exchange rate analytics"
+authors = [
+    {name = "István Vámosi"}
+]
+requires-python = ">=3.11"
+dependencies = [
+    "sqlalchemy (>=2.0.48,<3.0.0)",
+    "psycopg2-binary (>=2.9.11,<3.0.0)",
+    "requests (>=2.32.5,<3.0.0)",
+    "numpy (>=2.4.2,<3.0.0)",
+    "streamlit (>=1.55.0,<2.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
