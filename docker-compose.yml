@@ -1,0 +1,55 @@
+services:
+  postgres_db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: rates
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  bootstrap_worker:
+    build: .
+    command: python bootstrap_service.py
+    depends_on:
+      - postgres_db
+    environment:
+      DATABASE_URL: postgresql://admin:admin@postgres_db:5432/rates
+    volumes:
+      - .:/app
+
+  daily_worker:
+    build: .
+    command: python daily_service.py
+    depends_on:
+      - postgres_db
+    environment:
+      DATABASE_URL: postgresql://admin:admin@postgres_db:5432/rates
+    volumes:
+      - .:/app
+
+  analytics_worker:
+    build: .
+    command: python analytics_service.py
+    depends_on:
+      - postgres_db
+    environment:
+      DATABASE_URL: postgresql://admin:admin@postgres_db:5432/rates
+    volumes:
+      - .:/app
+
+  dashboard:
+    build: .
+    command: streamlit run dashboard.py --server.port=8501 --server.address=0.0.0.0
+    depends_on:
+      - analytics_worker
+    ports:
+      - "8501:8501"
+    volumes:
+      - .:/app
+
+volumes:
+  pgdata:
