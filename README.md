@@ -61,14 +61,14 @@ created_at	  TIMESTAMPTZ	  Timestamp when the record was saved
 
 **1. Start the PostgreSQL database**
 
-docker-compose up -d postgres_db
+- docker-compose up -d postgres_db
 
 **2. Run the workers and services**
 
-docker-compose run --rm bootstrap_worker
-docker-compose run --rm daily_worker
-docker-compose run --rm analytics_worker
-docker-compose run --rm dashboard
+- docker-compose run --rm bootstrap_worker
+- docker-compose run --rm daily_worker
+- docker-compose run --rm analytics_worker
+- docker-compose up dashboard
 
 **Notes**
 
