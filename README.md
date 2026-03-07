@@ -84,10 +84,10 @@ You can pull and run them directly without building locally.
 
 | Service           | Docker Hub Image                     |
 |-------------------|--------------------------------------|
-| PostgreSQL        | vamosz92/app-postgres_db:latest      |
-| Bootstrap Worker  |vamosz92/app-bootstrap_worker:latest  |
-| Daily Worker      | vamosz92/app-daily_worker:v1         |
-| Analytics Worker  | vamosz92/app-analytics_worker:v1     |
+| PostgreSQL        | vamosz92/postgres:15                 |
+| Bootstrap Worker  | vamosz92/app-bootstrap_worker:latest |
+| Daily Worker      | vamosz92/app-daily_worker:latest     |
+| Analytics Worker  | vamosz92/app-analytics_worker:latest |
 | Dashboard         | vamosz92/app-dashboard:latest        |
 
 Example: Pull and Run
