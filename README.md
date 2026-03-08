@@ -58,12 +58,22 @@ This project contains the following services:
     
 ## Running Services
 
-### 1. Start the PostgreSQL database
+### Option 1: Build and run from source
+
+If you cloned the repository, Docker Compose will build the images locally.
+
+### 1. Build the images:
+
+```
+docker-compose build
+```
+
+### 2. Start the PostgreSQL database
 ```bash
 docker-compose up -d postgres_db
 ```
 
-### 2. Run the workers and services
+### 3. Run the workers and services
 
 ```
 docker-compose run --rm bootstrap_worker
@@ -77,7 +87,7 @@ No local Python or dependencies are required; Docker handles everything.
 
 ---
 
-### Docker Hub Images
+### Option 2: Run using pre-built Docker Hub images
 
 All project services are also available as pre-built images on Docker Hub.
 You can pull and run them directly without building locally.
