@@ -100,13 +100,6 @@ You can pull and run them directly without building locally.
 | Analytics Worker  | vamosz92/app-analytics_worker:latest |
 | Dashboard         | vamosz92/app-dashboard:latest        |
 
-Example: Pull and Run
-
-```
-docker pull vamosz92/app-dashboard:latest
-docker run -p 8501:8501 vamosz92/app-dashboard:latest
-```
-
 This allows you to run the service without building it locally.
 Other services can be pulled similarly using their Docker Hub images.
 
